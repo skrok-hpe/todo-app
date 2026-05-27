@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-top">
+                <img src="hpe-logo.svg" alt="HPE Logo" class="hpe-logo">
+                <div class="date-time" id="dateTime"></div>
+            </div>
+            <div class="hpe-news" id="hpeNews">
+                <div class="news-headline">Loading HPE news...</div>
+            </div>
+        </div>
+        
+        <h1>רשימת המשימות שלי</h1>
+        
+        <div class="input-section">
+            <input 
+                type="text" 
+                id="todoInput" 
+                placeholder="Add a new todo..." 
+                autocomplete="off"
+            >
+            <button id="addBtn">Add</button>
+        </div>
+
+        <div id="todoStats" class="todo-stats"></div>
+        
+        <ul id="todoList" class="todo-list">
+            <!-- Todos will be added here -->
+        </ul>
+
+        <p id="emptyMessage" class="empty-message">No todos yet. Add one to get started!</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
