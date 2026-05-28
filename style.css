@@ -214,7 +214,7 @@ body.dark-theme {
     gap: 12px;
 }
 
-.hpe-logo {
+.juniper-logo {
     height: 45px;
     width: auto;
     object-fit: contain;
@@ -272,7 +272,7 @@ body.dark-theme {
     transform: scale(0.95);
 }
 
-.hpe-news {
+.juniper-news {
     margin-top: 15px;
     padding: 14px;
     background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
@@ -290,7 +290,7 @@ body.dark-theme {
     animation: slideInUp 0.5s var(--transition);
 }
 
-.hpe-news:hover {
+.juniper-news:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Juniper Networks Logo -->
+  <defs>
+    <style>
+      .juniper-text { font-family: Arial, sans-serif; font-weight: bold; }
+    </style>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#1f2937" stroke-width="2" opacity="0.1"/>
+  
+  <!-- Main logo mark - stylized J for Juniper -->
+  <g transform="translate(100, 100)">
+    <!-- Outer geometric shape -->
+    <path d="M -30 -40 L 30 -40 L 30 -10 L 0 -10 L 0 40 Q 0 50 -10 50 L -30 50 Q -40 50 -40 40 L -40 -30 Q -40 -40 -30 -40" 
+          fill="none" stroke="#1f2937" stroke-width="3" stroke-linejoin="round"/>
+    
+    <!-- Inner accent -->
+    <circle cx="0" cy="-25" r="8" fill="#1f2937" opacity="0.6"/>
+  </g>
+  
+  <!-- Juniper text -->
+  <text x="100" y="165" text-anchor="middle" class="juniper-text" font-size="24" fill="#1f2937">
+    Juniper
+  </text>
+</svg>

@@ -4,7 +4,7 @@ const todoList = document.getElementById('todoList');
 const emptyMessage = document.getElementById('emptyMessage');
 const todoStats = document.getElementById('todoStats');
 const dateTimeElement = document.getElementById('dateTime');
-const hpeNewsElement = document.getElementById('hpeNews');
+const juniperNewsElement = document.getElementById('juniperNews');
 const themeToggle = document.getElementById('themeToggle');
 
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
@@ -16,8 +16,8 @@ initTheme();
 updateDateTime();
 setInterval(updateDateTime, 1000);
 
-// Fetch HPE news
-fetchHPENews();
+// Fetch Juniper news
+fetchJuniperNews();
 
 // Render todos on page load
 renderTodos();
@@ -71,15 +71,15 @@ function updateDateTime() {
     dateTimeElement.textContent = now.toLocaleString('he-IL', options);
 }
 
-function fetchHPENews() {
+function fetchJuniperNews() {
     // Fallback news if API fails
     const fallbackNews = [
-        "HPE expands edge computing capabilities with new AI solutions",
-        "HPE partners with leading cloud providers for hybrid infrastructure"
+        "Juniper Networks advances network AI with innovative solutions",
+        "Juniper Networks strengthens cloud and edge connectivity"
     ];
     
     // Try to fetch from NewsAPI
-    fetch('https://newsapi.org/v2/everything?q=HPE&language=en&sortBy=publishedAt&pageSize=5', {
+    fetch('https://newsapi.org/v2/everything?q=Juniper+Networks&language=en&sortBy=publishedAt&pageSize=5', {
         headers: {
             'X-API-Key': 'demo' // Using demo key - replace with your own for production
         }
@@ -91,7 +91,7 @@ function fetchHPENews() {
     .then(data => {
         if (data.articles && data.articles.length > 0) {
             const newsLines = data.articles.slice(0, 2).map(article => article.title).join(' • ');
-            hpeNewsElement.innerHTML = `<div class="news-headline">📰 Hewlett Packard Enterprise Latest News & Industry Updates:</div><div>${newsLines}</div>`;
+            juniperNewsElement.innerHTML = `<div class="news-headline">📰 Juniper Networks Latest News & Industry Updates:</div><div>${newsLines}</div>`;
         } else {
             displayFallbackNews(fallbackNews);
         }
@@ -103,7 +103,7 @@ function fetchHPENews() {
 
 function displayFallbackNews(news) {
     const newsLines = news.join(' • ');
-    hpeNewsElement.innerHTML = `<div class="news-headline">📰 Hewlett Packard Enterprise Latest News & Industry Updates:</div><div>${newsLines}</div>`;
+    juniperNewsElement.innerHTML = `<div class="news-headline">📰 Juniper Networks Latest News & Industry Updates:</div><div>${newsLines}</div>`;
 }
 
 function addTodo() {
