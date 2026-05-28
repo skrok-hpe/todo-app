@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
-  <style>
-    .hpe-text { fill: #01A982; font-family: Arial, sans-serif; font-weight: bold; font-size: 32px; }
-    .hpe-box { fill: none; stroke: #01A982; stroke-width: 2; }
-  </style>
-  <rect x="5" y="5" width="50" height="50" class="hpe-box" rx="2"/>
-  <text x="15" y="40" class="hpe-text">H</text>
-  <text x="80" y="40" class="hpe-text">HPE</text>
-</svg>
