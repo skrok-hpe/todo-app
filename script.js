@@ -137,9 +137,19 @@ function toggleTodo(id) {
 }
 
 function deleteTodo(id) {
-    todos = todos.filter(todo => todo.id !== id);
-    saveTodos();
-    renderTodos();
+    const todoItem = document.querySelector(`[data-todo-id="${id}"]`);
+    if (todoItem) {
+        todoItem.classList.add('deleting');
+        setTimeout(() => {
+            todos = todos.filter(todo => todo.id !== id);
+            saveTodos();
+            renderTodos();
+        }, 300); // Match the animation duration
+    } else {
+        todos = todos.filter(todo => todo.id !== id);
+        saveTodos();
+        renderTodos();
+    }
 }
 
 function renderTodos() {
@@ -160,6 +170,7 @@ function renderTodos() {
     todos.forEach(todo => {
         const li = document.createElement('li');
         li.className = `todo-item ${todo.completed ? 'completed' : ''}`;
+        li.setAttribute('data-todo-id', todo.id);
         li.innerHTML = `
             <div class="todo-content">
                 <input 
