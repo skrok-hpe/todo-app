@@ -4,10 +4,55 @@
     box-sizing: border-box;
 }
 
+:root {
+    --color-primary: #667eea;
+    --color-primary-hover: #5568d3;
+    --color-danger: #ff6b6b;
+    --color-danger-hover: #ee5a52;
+    --color-success: #01A982;
+    
+    --bg-main: white;
+    --bg-secondary: #f5f5f5;
+    --bg-tertiary: #f0f4ff;
+    --bg-completed: #ffebee;
+    --bg-hover: #efefef;
+    --bg-dots: #4a90e2;
+    
+    --text-primary: #333;
+    --text-secondary: #555;
+    --text-tertiary: #999;
+    --text-light: white;
+    
+    --border-color: #e0e0e0;
+    
+    --transition-speed: 0.3s;
+}
+
+:root.dark-theme {
+    --bg-main: #1e1e1e;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #1a2842;
+    --bg-completed: #3d2323;
+    --bg-hover: #3a3a3a;
+    --bg-dots: #4a90e2;
+    
+    --text-primary: #e8e8e8;
+    --text-secondary: #b0b0b0;
+    --text-tertiary: #777;
+    --text-light: white;
+    
+    --border-color: #404040;
+    
+    --color-primary: #7b9eff;
+    --color-primary-hover: #8baeff;
+    --color-danger: #ff8888;
+    --color-danger-hover: #ff9999;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: white;
-    background-image: radial-gradient(circle, #4a90e2 2px, transparent 2px);
+    background-color: var(--bg-main);
+    background-image: radial-gradient(circle, var(--bg-dots) 2px, transparent 2px);
     background-size: 40px 40px;
     background-position: 0 0;
     min-height: 100vh;
@@ -15,21 +60,24 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    color: var(--text-primary);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 .container {
-    background: white;
+    background: var(--bg-main);
     border-radius: 10px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     padding: 30px;
     max-width: 500px;
     width: 100%;
+    transition: background-color var(--transition-speed);
 }
 
 .header {
     margin-bottom: 20px;
     padding-bottom: 20px;
-    border-bottom: 2px solid #e0e0e0;
+    border-bottom: 2px solid var(--border-color);
 }
 
 .header-top {
@@ -39,6 +87,12 @@ body {
     gap: 20px;
 }
 
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 .hpe-logo {
     height: 40px;
     width: auto;
@@ -46,38 +100,60 @@ body {
 }
 
 .date-time {
-    color: #667eea;
+    color: var(--color-primary);
     font-weight: 600;
     font-size: 20px;
     text-align: right;
 }
 
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--color-primary);
+    color: var(--text-primary);
+    font-size: 20px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.theme-toggle:hover {
+    background-color: var(--color-primary);
+    color: var(--text-light);
+}
+
+.theme-toggle:active {
+    transform: scale(0.98);
+}
+
 .hpe-news {
     margin-top: 15px;
     padding: 12px;
-    background-color: #f0f4ff;
-    border-left: 4px solid #667eea;
+    background-color: var(--bg-tertiary);
+    border-left: 4px solid var(--color-primary);
     border-radius: 4px;
     font-size: 13px;
-    color: #555;
+    color: var(--text-secondary);
     line-height: 1.6;
     max-height: 300px;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 .news-headline {
-    color: #667eea;
+    color: var(--color-primary);
     font-weight: 600;
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 30px;
     font-size: 28px;
+    transition: color var(--transition-speed);
 }
 
 .input-section {
@@ -89,31 +165,33 @@ h1 {
 #todoInput {
     flex: 1;
     padding: 12px;
-    border: 2px solid #e0e0e0;
+    border: 2px solid var(--border-color);
     border-radius: 5px;
     font-size: 16px;
-    transition: border-color 0.3s;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    transition: border-color var(--transition-speed), background-color var(--transition-speed), color var(--transition-speed);
 }
 
 #todoInput:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: var(--color-primary);
 }
 
 #addBtn {
     padding: 12px 24px;
-    background-color: #667eea;
+    background-color: var(--color-primary);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
-    transition: background-color 0.3s;
+    transition: background-color var(--transition-speed);
 }
 
 #addBtn:hover {
-    background-color: #5568d3;
+    background-color: var(--color-primary-hover);
 }
 
 #addBtn:active {
@@ -130,19 +208,19 @@ h1 {
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background-color: #f5f5f5;
+    background-color: var(--bg-secondary);
     border-radius: 5px;
     margin-bottom: 10px;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .todo-item:hover {
-    background-color: #efefef;
+    background-color: var(--bg-hover);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .todo-item.completed {
-    background-color: #ffebee;
+    background-color: var(--bg-completed);
     opacity: 0.8;
 }
 
@@ -151,7 +229,7 @@ h1 {
     height: 20px;
     margin-right: 12px;
     cursor: pointer;
-    accent-color: #667eea;
+    accent-color: var(--color-primary);
     flex-shrink: 0;
 }
 
@@ -162,34 +240,34 @@ h1 {
 }
 
 .todo-text {
-    color: #333;
+    color: var(--text-primary);
     font-size: 16px;
     word-break: break-word;
     flex: 1;
-    transition: color 0.3s, text-decoration 0.3s;
+    transition: color var(--transition-speed), text-decoration var(--transition-speed);
 }
 
 .todo-text.completed {
     text-decoration: line-through;
-    color: #999;
+    color: var(--text-tertiary);
 }
 
 .delete-btn {
     padding: 8px 12px;
-    background-color: #ff6b6b;
+    background-color: var(--color-danger);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
-    transition: background-color 0.3s;
+    transition: background-color var(--transition-speed);
     white-space: nowrap;
     margin-left: 10px;
 }
 
 .delete-btn:hover {
-    background-color: #ee5a52;
+    background-color: var(--color-danger-hover);
 }
 
 .delete-btn:active {
@@ -198,7 +276,7 @@ h1 {
 
 .empty-message {
     text-align: center;
-    color: #999;
+    color: var(--text-tertiary);
     font-size: 14px;
     padding: 20px;
 }
@@ -209,10 +287,11 @@ h1 {
 
 .todo-stats {
     text-align: center;
-    color: #667eea;
+    color: var(--color-primary);
     font-size: 14px;
     margin-bottom: 15px;
     font-weight: 600;
+    transition: color var(--transition-speed);
 }
 
 .todo-stats.hidden {

@@ -5,8 +5,12 @@ const emptyMessage = document.getElementById('emptyMessage');
 const todoStats = document.getElementById('todoStats');
 const dateTimeElement = document.getElementById('dateTime');
 const hpeNewsElement = document.getElementById('hpeNews');
+const themeToggle = document.getElementById('themeToggle');
 
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
+
+// Initialize theme
+initTheme();
 
 // Update date and time
 updateDateTime();
@@ -25,6 +29,33 @@ todoInput.addEventListener('keypress', (e) => {
         addTodo();
     }
 });
+themeToggle.addEventListener('click', toggleTheme);
+
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+}
+
+function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.classList.contains('dark-theme') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    applyTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+}
+
+function applyTheme(theme) {
+    const html = document.documentElement;
+    const emoji = theme === 'dark' ? '☀️' : '🌙';
+    
+    if (theme === 'dark') {
+        html.classList.add('dark-theme');
+    } else {
+        html.classList.remove('dark-theme');
+    }
+    
+    themeToggle.textContent = emoji;
+}
 
 function updateDateTime() {
     const now = new Date();
